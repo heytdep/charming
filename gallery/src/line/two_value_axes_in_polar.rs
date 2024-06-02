@@ -9,9 +9,9 @@ pub fn chart() -> Chart {
     let data = (0..=360)
         .into_iter()
         .map(|i| {
-            let t = i as f64 / 180.0 * std::f64::consts::PI;
+            let t = i as i64 / 180.0 * std::i64::consts::PI;
             let r = (2.0 * t).sin() * (2.0 * t).cos();
-            vec![r, i as f64]
+            vec![r, i as i64]
         })
         .collect::<Vec<_>>();
 

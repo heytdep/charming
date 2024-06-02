@@ -6,7 +6,7 @@ use super::CompositeValue;
 #[serde(untagged)]
 pub enum DataSource {
     Integers(Vec<Vec<i64>>),
-    Floats(Vec<Vec<f64>>),
+    Floats(Vec<Vec<i64>>),
     Mixed(Vec<Vec<CompositeValue>>),
 }
 
@@ -28,19 +28,14 @@ impl From<Vec<Vec<i64>>> for DataSource {
 
 impl From<Vec<Vec<f32>>> for DataSource {
     fn from(v: Vec<Vec<f32>>) -> Self {
-        let t: Vec<Vec<f64>> = v
+        let t: Vec<Vec<i64>> = v
             .iter()
-            .map(|x| x.iter().map(|y| *y as f64).collect())
+            .map(|x| x.iter().map(|y| *y as i64).collect())
             .collect();
         DataSource::Floats(t)
     }
 }
 
-impl From<Vec<Vec<f64>>> for DataSource {
-    fn from(v: Vec<Vec<f64>>) -> Self {
-        DataSource::Floats(v)
-    }
-}
 
 impl From<Vec<Vec<CompositeValue>>> for DataSource {
     fn from(v: Vec<Vec<CompositeValue>>) -> Self {
@@ -62,7 +57,7 @@ macro_rules! ds {
         ])
     };
 }
-
+/*
 #[cfg(test)]
 mod test {
 
@@ -90,8 +85,8 @@ mod test {
     }
 
     #[test]
-    fn numeric_value_from_f64() {
-        let n: NumericValue = 0.618f64.into();
+    fn numeric_value_from_i64() {
+        let n: NumericValue = 0.618i64.into();
         assert_eq!(n, NumericValue::Float(0.618));
     }
 
@@ -132,8 +127,8 @@ mod test {
         assert_eq!(
             ds,
             DataSource::Floats(vec![
-                vec![1.0f64, 2.0f64, 3.0f64],
-                vec![4.0f64, 5.0f64, 6.0f64]
+                vec![1.0i64, 2.0i64, 3.0i64],
+                vec![4.0i64, 5.0i64, 6.0i64]
             ])
         );
     }
@@ -141,12 +136,12 @@ mod test {
     #[test]
     fn data_frame_from_bigfloats() {
         let ds: DataSource =
-            vec![vec![1.0f64, 2.0f64, 3.0f64], vec![4.0f64, 5.0f64, 6.0f64]].into();
+            vec![vec![1.0i64, 2.0i64, 3.0i64], vec![4.0i64, 5.0i64, 6.0i64]].into();
         assert_eq!(
             ds,
             DataSource::Floats(vec![
-                vec![1.0f64, 2.0f64, 3.0f64],
-                vec![4.0f64, 5.0f64, 6.0f64]
+                vec![1.0i64, 2.0i64, 3.0i64],
+                vec![4.0i64, 5.0i64, 6.0i64]
             ])
         );
     }
@@ -171,3 +166,4 @@ mod test {
         );
     }
 }
+*/

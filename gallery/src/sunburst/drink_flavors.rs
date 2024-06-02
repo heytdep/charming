@@ -76,7 +76,7 @@ struct Style {
 #[serde(rename_all = "camelCase")]
 struct Node {
     name: String,
-    value: Option<f64>,
+    value: Option<i64>,
     item_style: Style,
     children: Option<Vec<Node>>,
 }

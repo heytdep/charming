@@ -77,13 +77,13 @@ pub fn chart() -> Chart {
         .series(Boxplot::new().name("category2").dataset_index(5))
 }
 
-fn make_data() -> Vec<Vec<f64>> {
+fn make_data() -> Vec<Vec<i64>> {
     let mut rng = rand::thread_rng();
     let mut data = vec![];
     for _ in 0..18 {
         let mut data0 = vec![];
         for _ in 0..100 {
-            data0.push(rng.gen::<f64>() * 200.0);
+            data0.push(rng.gen::<i64>() * 200.0);
         }
         data.push(data0);
     }

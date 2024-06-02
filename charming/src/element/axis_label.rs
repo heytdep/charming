@@ -9,10 +9,10 @@ pub struct AxisLabel {
     show: Option<bool>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    distance: Option<f64>,
+    distance: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    font_size: Option<f64>,
+    font_size: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     color: Option<Color>,
@@ -21,10 +21,10 @@ pub struct AxisLabel {
     formatter: Option<Formatter>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    rotate: Option<f64>,
+    rotate: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    interval: Option<f64>,
+    interval: Option<i64>,
 }
 
 impl AxisLabel {
@@ -45,12 +45,12 @@ impl AxisLabel {
         self
     }
 
-    pub fn distance<F: Into<f64>>(mut self, distance: F) -> Self {
+    pub fn distance<F: Into<i64>>(mut self, distance: F) -> Self {
         self.distance = Some(distance.into());
         self
     }
 
-    pub fn font_size<F: Into<f64>>(mut self, font_size: F) -> Self {
+    pub fn font_size<F: Into<i64>>(mut self, font_size: F) -> Self {
         self.font_size = Some(font_size.into());
         self
     }
@@ -65,12 +65,12 @@ impl AxisLabel {
         self
     }
 
-    pub fn rotate<F: Into<f64>>(mut self, rotate: F) -> Self {
+    pub fn rotate<F: Into<i64>>(mut self, rotate: F) -> Self {
         self.rotate = Some(rotate.into());
         self
     }
 
-    pub fn interval<F: Into<f64>>(mut self, interval: F) -> Self {
+    pub fn interval<F: Into<i64>>(mut self, interval: F) -> Self {
         self.interval = Some(interval.into());
         self
     }

@@ -16,11 +16,11 @@ pub fn chart() -> Chart {
                 .emphasis(Emphasis::new().area_style(AreaStyle::new().color("rgba(0,250,0,0.3)")))
                 .data(vec![DataPoint::Item(
                     DataPointItem::new(vec![
-                        (40. - i as f64) * 10.,
-                        (38. - i as f64) * 4. + 60.,
-                        i as f64 * 5. + 10.,
-                        i as f64 * 9.,
-                        (i as f64 * i as f64) / 2.,
+                        (40. - i as i64) * 10.,
+                        (38. - i as i64) * 4. + 60.,
+                        i as i64 * 5. + 10.,
+                        i as i64 * 9.,
+                        (i as i64 * i as i64) / 2.,
                     ])
                     .name((i + 2000).to_string()),
                 )]),

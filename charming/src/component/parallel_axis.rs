@@ -6,10 +6,10 @@ use crate::element::{AxisType, NameLocation};
 #[serde(rename_all = "camelCase")]
 pub struct ParallelAxis {
     #[serde(skip_serializing_if = "Option::is_none")]
-    dim: Option<f64>,
+    dim: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    parallel_index: Option<f64>,
+    parallel_index: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     realtime: Option<bool>,
@@ -25,16 +25,16 @@ pub struct ParallelAxis {
     name_location: Option<NameLocation>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    name_gap: Option<f64>,
+    name_gap: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     inverse: Option<bool>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    max: Option<f64>,
+    max: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    min: Option<f64>,
+    min: Option<i64>,
 
     #[serde(skip_serializing_if = "Vec::is_empty")]
     data: Vec<String>,
@@ -57,12 +57,12 @@ impl ParallelAxis {
         }
     }
 
-    pub fn dim<F: Into<f64>>(mut self, dim: F) -> Self {
+    pub fn dim<F: Into<i64>>(mut self, dim: F) -> Self {
         self.dim = Some(dim.into());
         self
     }
 
-    pub fn parallel_index<F: Into<f64>>(mut self, parallel_index: F) -> Self {
+    pub fn parallel_index<F: Into<i64>>(mut self, parallel_index: F) -> Self {
         self.parallel_index = Some(parallel_index.into());
         self
     }
@@ -87,7 +87,7 @@ impl ParallelAxis {
         self
     }
 
-    pub fn name_gap<F: Into<f64>>(mut self, name_gap: F) -> Self {
+    pub fn name_gap<F: Into<i64>>(mut self, name_gap: F) -> Self {
         self.name_gap = Some(name_gap.into());
         self
     }
@@ -97,12 +97,12 @@ impl ParallelAxis {
         self
     }
 
-    pub fn max<F: Into<f64>>(mut self, max: F) -> Self {
+    pub fn max<F: Into<i64>>(mut self, max: F) -> Self {
         self.max = Some(max.into());
         self
     }
 
-    pub fn min<F: Into<f64>>(mut self, min: F) -> Self {
+    pub fn min<F: Into<i64>>(mut self, min: F) -> Self {
         self.min = Some(min.into());
         self
     }

@@ -34,16 +34,16 @@ pub struct Pie {
     coordiate_system: Option<CoordinateSystem>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    geo_index: Option<f64>,
+    geo_index: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    calendar_index: Option<f64>,
+    calendar_index: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     selected_mode: Option<bool>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    selected_offset: Option<f64>,
+    selected_offset: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     clockwise: Option<bool>,
@@ -52,7 +52,7 @@ pub struct Pie {
     avoid_label_overlap: Option<bool>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    start_angle: Option<f64>,
+    start_angle: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     rose_type: Option<PieRoseType>,
@@ -131,12 +131,12 @@ impl Pie {
         self
     }
 
-    pub fn geo_index<F: Into<f64>>(mut self, geo_index: F) -> Self {
+    pub fn geo_index<F: Into<i64>>(mut self, geo_index: F) -> Self {
         self.geo_index = Some(geo_index.into());
         self
     }
 
-    pub fn calendar_index<F: Into<f64>>(mut self, calendar_index: F) -> Self {
+    pub fn calendar_index<F: Into<i64>>(mut self, calendar_index: F) -> Self {
         self.calendar_index = Some(calendar_index.into());
         self
     }
@@ -146,7 +146,7 @@ impl Pie {
         self
     }
 
-    pub fn selected_offset<F: Into<f64>>(mut self, selected_offset: F) -> Self {
+    pub fn selected_offset<F: Into<i64>>(mut self, selected_offset: F) -> Self {
         self.selected_offset = Some(selected_offset.into());
         self
     }
@@ -161,7 +161,7 @@ impl Pie {
         self
     }
 
-    pub fn start_angle<F: Into<f64>>(mut self, start_angle: F) -> Self {
+    pub fn start_angle<F: Into<i64>>(mut self, start_angle: F) -> Self {
         self.start_angle = Some(start_angle.into());
         self
     }

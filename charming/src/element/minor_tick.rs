@@ -9,10 +9,10 @@ pub struct MinorTick {
     show: Option<bool>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    split_number: Option<f64>,
+    split_number: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    length: Option<f64>,
+    length: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     line_style: Option<LineStyle>,
@@ -33,12 +33,12 @@ impl MinorTick {
         self
     }
 
-    pub fn split_number<F: Into<f64>>(mut self, split_number: F) -> MinorTick {
+    pub fn split_number<F: Into<i64>>(mut self, split_number: F) -> MinorTick {
         self.split_number = Some(split_number.into());
         self
     }
 
-    pub fn length<F: Into<f64>>(mut self, length: F) -> MinorTick {
+    pub fn length<F: Into<i64>>(mut self, length: F) -> MinorTick {
         self.length = Some(length.into());
         self
     }

@@ -727,7 +727,7 @@ dependencies = [
 name = "enum-ordinalize"
 version = "3.1.13"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e4f76552f53cefc9a7f64987c3701b99d982f7690606fd67de1d09712fbf52f1"
+checksum = "e4f76552f53cefc9a7i64987c3701b99d982f7690606fd67de1d09712fbf52f1"
 dependencies = [
  "num-bigint",
  "num-traits",
@@ -1591,7 +1591,7 @@ dependencies = [
 name = "leptos_config"
 version = "0.4.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0108f6c8409c99fcf25f4c55a56b4bf9afeeb58f643879bb115d4258b9e22979"
+checksum = "0108f6c8409c99fcf25f4c55a56b4bf9afeeb58i643879bb115d4258b9e22979"
 dependencies = [
  "config",
  "regex",

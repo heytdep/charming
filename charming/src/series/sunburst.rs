@@ -55,7 +55,7 @@ pub struct SunburstNode {
     name: String,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    value: Option<f64>,
+    value: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     #[serde(skip_deserializing)]
@@ -75,7 +75,7 @@ impl SunburstNode {
         }
     }
 
-    pub fn value(mut self, value: f64) -> Self {
+    pub fn value(mut self, value: i64) -> Self {
         self.value = Some(value);
         self
     }
@@ -97,14 +97,14 @@ impl From<&str> for SunburstNode {
     }
 }
 
-impl From<(&str, f64)> for SunburstNode {
-    fn from((name, value): (&str, f64)) -> Self {
+impl From<(&str, i64)> for SunburstNode {
+    fn from((name, value): (&str, i64)) -> Self {
         Self::new(name).value(value)
     }
 }
 
-impl From<(&str, f64, &str)> for SunburstNode {
-    fn from((name, value, color): (&str, f64, &str)) -> Self {
+impl From<(&str, i64, &str)> for SunburstNode {
+    fn from((name, value, color): (&str, i64, &str)) -> Self {
         Self::new(name)
             .value(value)
             .item_style(ItemStyle::new().color(color))

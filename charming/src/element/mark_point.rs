@@ -30,13 +30,13 @@ pub struct MarkPointData {
     name: Option<String>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    x_axis: Option<f64>,
+    x_axis: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    y_axis: Option<f64>,
+    y_axis: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    value: Option<f64>,
+    value: Option<i64>,
 }
 
 impl MarkPointData {
@@ -60,17 +60,17 @@ impl MarkPointData {
         self
     }
 
-    pub fn x_axis<F: Into<f64>>(mut self, x_axis: F) -> Self {
+    pub fn x_axis<F: Into<i64>>(mut self, x_axis: F) -> Self {
         self.x_axis = Some(x_axis.into());
         self
     }
 
-    pub fn y_axis<F: Into<f64>>(mut self, y_axis: F) -> Self {
+    pub fn y_axis<F: Into<i64>>(mut self, y_axis: F) -> Self {
         self.y_axis = Some(y_axis.into());
         self
     }
 
-    pub fn value<F: Into<f64>>(mut self, value: F) -> Self {
+    pub fn value<F: Into<i64>>(mut self, value: F) -> Self {
         self.value = Some(value.into());
         self
     }

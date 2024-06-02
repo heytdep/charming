@@ -2,7 +2,7 @@ use serde::{ser::SerializeSeq, Serialize};
 
 use super::color::Color;
 
-pub struct ColorSegment(f64, Color);
+pub struct ColorSegment(i64, Color);
 
 impl Serialize for ColorSegment {
     fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
@@ -13,14 +13,14 @@ impl Serialize for ColorSegment {
     }
 }
 
-impl From<(f64, &str)> for ColorSegment {
-    fn from(tuple: (f64, &str)) -> Self {
+impl From<(i64, &str)> for ColorSegment {
+    fn from(tuple: (i64, &str)) -> Self {
         Self(tuple.0, tuple.1.into())
     }
 }
 
-impl From<(f64, Color)> for ColorSegment {
-    fn from(tuple: (f64, Color)) -> Self {
+impl From<(i64, Color)> for ColorSegment {
+    fn from(tuple: (i64, Color)) -> Self {
         Self(tuple.0, tuple.1)
     }
 }
@@ -31,22 +31,22 @@ pub struct AxisLineStyle {
     color: Vec<ColorSegment>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    width: Option<f64>,
+    width: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    shadow_blur: Option<f64>,
+    shadow_blur: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     shadow_color: Option<Color>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    shadow_offset_x: Option<f64>,
+    shadow_offset_x: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    shadow_offset_y: Option<f64>,
+    shadow_offset_y: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    opacity: Option<f64>,
+    opacity: Option<i64>,
 }
 
 impl AxisLineStyle {
@@ -67,12 +67,12 @@ impl AxisLineStyle {
         self
     }
 
-    pub fn width<F: Into<f64>>(mut self, width: F) -> Self {
+    pub fn width<F: Into<i64>>(mut self, width: F) -> Self {
         self.width = Some(width.into());
         self
     }
 
-    pub fn shadow_blur<F: Into<f64>>(mut self, shadow_blur: F) -> Self {
+    pub fn shadow_blur<F: Into<i64>>(mut self, shadow_blur: F) -> Self {
         self.shadow_blur = Some(shadow_blur.into());
         self
     }
@@ -82,30 +82,30 @@ impl AxisLineStyle {
         self
     }
 
-    pub fn shadow_offset_x<F: Into<f64>>(mut self, shadow_offset_x: F) -> Self {
+    pub fn shadow_offset_x<F: Into<i64>>(mut self, shadow_offset_x: F) -> Self {
         self.shadow_offset_x = Some(shadow_offset_x.into());
         self
     }
 
-    pub fn shadow_offset_y<F: Into<f64>>(mut self, shadow_offset_y: F) -> Self {
+    pub fn shadow_offset_y<F: Into<i64>>(mut self, shadow_offset_y: F) -> Self {
         self.shadow_offset_y = Some(shadow_offset_y.into());
         self
     }
 
-    pub fn opacity<F: Into<f64>>(mut self, opacity: F) -> Self {
+    pub fn opacity<F: Into<i64>>(mut self, opacity: F) -> Self {
         self.opacity = Some(opacity.into());
         self
     }
 }
 
-impl From<(f64, &str)> for AxisLineStyle {
-    fn from(tuple: (f64, &str)) -> Self {
+impl From<(i64, &str)> for AxisLineStyle {
+    fn from(tuple: (i64, &str)) -> Self {
         Self::new().color(tuple)
     }
 }
 
-impl From<(f64, &str, f64)> for AxisLineStyle {
-    fn from(tuple: (f64, &str, f64)) -> Self {
+impl From<(i64, &str, i64)> for AxisLineStyle {
+    fn from(tuple: (i64, &str, i64)) -> Self {
         Self::new().color((tuple.0, tuple.1)).width(tuple.2)
     }
 }

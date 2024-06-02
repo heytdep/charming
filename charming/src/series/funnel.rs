@@ -29,10 +29,10 @@ pub struct Funnel {
     color_by: Option<ColorBy>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    min: Option<f64>,
+    min: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    max: Option<f64>,
+    max: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     min_size: Option<String>,
@@ -65,7 +65,7 @@ pub struct Funnel {
     sort: Option<Sort>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    gap: Option<f64>,
+    gap: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     legend_hover_link: Option<bool>,
@@ -134,12 +134,12 @@ impl Funnel {
         self
     }
 
-    pub fn min<F: Into<f64>>(mut self, min: F) -> Self {
+    pub fn min<F: Into<i64>>(mut self, min: F) -> Self {
         self.min = Some(min.into());
         self
     }
 
-    pub fn max<F: Into<f64>>(mut self, max: F) -> Self {
+    pub fn max<F: Into<i64>>(mut self, max: F) -> Self {
         self.max = Some(max.into());
         self
     }
@@ -194,7 +194,7 @@ impl Funnel {
         self
     }
 
-    pub fn gap<F: Into<f64>>(mut self, gap: F) -> Self {
+    pub fn gap<F: Into<i64>>(mut self, gap: F) -> Self {
         self.gap = Some(gap.into());
         self
     }

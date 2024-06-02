@@ -11,11 +11,11 @@ pub struct PolarCoordinate {
 
     /// The `zlevel` value of all graphical elements in.
     #[serde(skip_serializing_if = "Option::is_none")]
-    zlevel: Option<f64>,
+    zlevel: Option<i64>,
 
     /// The `z` value of all graphical elements in.
     #[serde(skip_serializing_if = "Option::is_none")]
-    z: Option<f64>,
+    z: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     center: Option<CompositeValue>,
@@ -40,12 +40,12 @@ impl PolarCoordinate {
         self
     }
 
-    pub fn zlevel<F: Into<f64>>(mut self, zlevel: F) -> Self {
+    pub fn zlevel<F: Into<i64>>(mut self, zlevel: F) -> Self {
         self.zlevel = Some(zlevel.into());
         self
     }
 
-    pub fn z<F: Into<f64>>(mut self, z: F) -> Self {
+    pub fn z<F: Into<i64>>(mut self, z: F) -> Self {
         self.z = Some(z.into());
         self
     }

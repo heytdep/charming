@@ -16,7 +16,7 @@ pub fn chart() -> Chart {
 
     let base = -data
         .iter()
-        .fold(f64::INFINITY, |min, val| f64::floor(f64::min(min, val.l)));
+        .fold(i64::INFINITY, |min, val| i64::floor(i64::min(min, val.l)));
 
     Chart::new()
         .title(
@@ -99,7 +99,7 @@ pub fn chart() -> Chart {
 #[derive(Deserialize)]
 struct DataItem {
     date: String,
-    value: f64,
-    l: f64,
-    u: f64,
+    value: i64,
+    l: i64,
+    u: i64,
 }

@@ -35,13 +35,13 @@ pub struct RippleEffect {
     color: Option<Color>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    number: Option<f64>,
+    number: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    period: Option<f64>,
+    period: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    scale: Option<f64>,
+    scale: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     brush_type: Option<RippleEffectBrushType>,
@@ -63,17 +63,17 @@ impl RippleEffect {
         self
     }
 
-    pub fn number<F: Into<f64>>(mut self, number: F) -> Self {
+    pub fn number<F: Into<i64>>(mut self, number: F) -> Self {
         self.number = Some(number.into());
         self
     }
 
-    pub fn period<F: Into<f64>>(mut self, period: F) -> Self {
+    pub fn period<F: Into<i64>>(mut self, period: F) -> Self {
         self.period = Some(period.into());
         self
     }
 
-    pub fn scale<F: Into<f64>>(mut self, scale: F) -> Self {
+    pub fn scale<F: Into<i64>>(mut self, scale: F) -> Self {
         self.scale = Some(scale.into());
         self
     }
@@ -112,28 +112,28 @@ pub struct EffectScatter {
     coordinate_system: Option<CoordinateSystem>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    x_axis_index: Option<f64>,
+    x_axis_index: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    y_axis_index: Option<f64>,
+    y_axis_index: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    polar_index: Option<f64>,
+    polar_index: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    geo_index: Option<f64>,
+    geo_index: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    calendar_index: Option<f64>,
+    calendar_index: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     symbol: Option<Symbol>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    symbol_size: Option<f64>,
+    symbol_size: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    symbol_rotate: Option<f64>,
+    symbol_rotate: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     symbol_keep_aspect: Option<bool>,
@@ -225,27 +225,27 @@ impl EffectScatter {
         self
     }
 
-    pub fn x_axis_index<F: Into<f64>>(mut self, x_axis_index: F) -> Self {
+    pub fn x_axis_index<F: Into<i64>>(mut self, x_axis_index: F) -> Self {
         self.x_axis_index = Some(x_axis_index.into());
         self
     }
 
-    pub fn y_axis_index<F: Into<f64>>(mut self, y_axis_index: F) -> Self {
+    pub fn y_axis_index<F: Into<i64>>(mut self, y_axis_index: F) -> Self {
         self.y_axis_index = Some(y_axis_index.into());
         self
     }
 
-    pub fn polar_index<F: Into<f64>>(mut self, polar_index: F) -> Self {
+    pub fn polar_index<F: Into<i64>>(mut self, polar_index: F) -> Self {
         self.polar_index = Some(polar_index.into());
         self
     }
 
-    pub fn geo_index<F: Into<f64>>(mut self, geo_index: F) -> Self {
+    pub fn geo_index<F: Into<i64>>(mut self, geo_index: F) -> Self {
         self.geo_index = Some(geo_index.into());
         self
     }
 
-    pub fn calendar_index<F: Into<f64>>(mut self, calendar_index: F) -> Self {
+    pub fn calendar_index<F: Into<i64>>(mut self, calendar_index: F) -> Self {
         self.calendar_index = Some(calendar_index.into());
         self
     }
@@ -255,12 +255,12 @@ impl EffectScatter {
         self
     }
 
-    pub fn symbol_size<F: Into<f64>>(mut self, symbol_size: F) -> Self {
+    pub fn symbol_size<F: Into<i64>>(mut self, symbol_size: F) -> Self {
         self.symbol_size = Some(symbol_size.into());
         self
     }
 
-    pub fn symbol_rotate<F: Into<f64>>(mut self, symbol_rotate: F) -> Self {
+    pub fn symbol_rotate<F: Into<i64>>(mut self, symbol_rotate: F) -> Self {
         self.symbol_rotate = Some(symbol_rotate.into());
         self
     }

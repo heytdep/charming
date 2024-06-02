@@ -18,16 +18,16 @@ pub struct TextStyle {
     font_family: Option<String>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    font_size: Option<f64>,
+    font_size: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    line_height: Option<f64>,
+    line_height: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     align: Option<String>,
     
     #[serde(skip_serializing_if = "Option::is_none")]
-    padding: Option<[f64; 4]>,
+    padding: Option<[i64; 4]>,
 }
 
 impl TextStyle {
@@ -64,12 +64,12 @@ impl TextStyle {
         self
     }
 
-    pub fn font_size<F: Into<f64>>(mut self, font_size: F) -> Self {
+    pub fn font_size<F: Into<i64>>(mut self, font_size: F) -> Self {
         self.font_size = Some(font_size.into());
         self
     }
 
-    pub fn line_height<F: Into<f64>>(mut self, line_height: F) -> Self {
+    pub fn line_height<F: Into<i64>>(mut self, line_height: F) -> Self {
         self.line_height = Some(line_height.into());
         self
     }
@@ -79,7 +79,7 @@ impl TextStyle {
         self
     }
 
-    pub fn padding<F: Into<f64> + Copy>(mut self, padding: [F; 4]) -> Self {
+    pub fn padding<F: Into<i64> + Copy>(mut self, padding: [F; 4]) -> Self {
         self.padding = Some([
             padding[0].into(),
             padding[1].into(),
@@ -89,7 +89,7 @@ impl TextStyle {
         self
     }
 
-    pub fn padding_all<F: Into<f64> + Copy>(mut self, padding: F) -> Self {
+    pub fn padding_all<F: Into<i64> + Copy>(mut self, padding: F) -> Self {
         self.padding = Some([
             padding.into(),
             padding.into(),
@@ -99,7 +99,7 @@ impl TextStyle {
         self
     }
 
-    pub fn padding_pair<F: Into<f64> + Copy>(mut self, padding: [F; 2]) -> Self {
+    pub fn padding_pair<F: Into<i64> + Copy>(mut self, padding: [F; 2]) -> Self {
         self.padding = Some([
             padding[0].into(),
             padding[1].into(),

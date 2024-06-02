@@ -95,7 +95,7 @@ pub struct AxisPointer {
     animation: Option<bool>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    z: Option<f64>,
+    z: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     axis: Option<AxisPointerAxis>,
@@ -154,7 +154,7 @@ impl AxisPointer {
         self
     }
 
-    pub fn z<F: Into<f64>>(mut self, z: F) -> Self {
+    pub fn z<F: Into<i64>>(mut self, z: F) -> Self {
         self.z = Some(z.into());
         self
     }

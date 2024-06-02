@@ -39,7 +39,7 @@ pub struct GridTooltip {
 
     /// The border width of tooltip's floating layer.
     #[serde(skip_serializing_if = "Option::is_none")]
-    border_width: Option<f64>,
+    border_width: Option<i64>,
 
     /// The floating layer of tooltip space around content.
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -106,7 +106,7 @@ impl GridTooltip {
         self
     }
 
-    pub fn border_width<F: Into<f64>>(mut self, border_width: F) -> Self {
+    pub fn border_width<F: Into<i64>>(mut self, border_width: F) -> Self {
         self.border_width = Some(border_width.into());
         self
     }
@@ -140,11 +140,11 @@ pub struct Grid {
 
     /// The `zlevel` value of all graphical elements in.
     #[serde(skip_serializing_if = "Option::is_none")]
-    zlevel: Option<f64>,
+    zlevel: Option<i64>,
 
     /// The `z` value of all graphical elements in.
     #[serde(skip_serializing_if = "Option::is_none")]
-    z: Option<f64>,
+    z: Option<i64>,
 
     /// Distance between grid component and the left side of the container.
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -184,11 +184,11 @@ pub struct Grid {
 
     /// Border width of grid.
     #[serde(skip_serializing_if = "Option::is_none")]
-    border_width: Option<f64>,
+    border_width: Option<i64>,
 
     /// Size of shadow blue.
     #[serde(skip_serializing_if = "Option::is_none")]
-    shadow_blur: Option<f64>,
+    shadow_blur: Option<i64>,
 
     /// Shadow color.
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -196,11 +196,11 @@ pub struct Grid {
 
     /// Offset distance on the horizontal direction of shadow.
     #[serde(skip_serializing_if = "Option::is_none")]
-    shadow_offset_x: Option<f64>,
+    shadow_offset_x: Option<i64>,
 
     /// Offset distance on the vertical direction of shadow.
     #[serde(skip_serializing_if = "Option::is_none")]
-    shadow_offset_y: Option<f64>,
+    shadow_offset_y: Option<i64>,
 
     /// Tooltip settings in the grid.
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -237,12 +237,12 @@ impl Grid {
         self
     }
 
-    pub fn zlevel<F: Into<f64>>(mut self, zlevel: F) -> Self {
+    pub fn zlevel<F: Into<i64>>(mut self, zlevel: F) -> Self {
         self.zlevel = Some(zlevel.into());
         self
     }
 
-    pub fn z<F: Into<f64>>(mut self, z: F) -> Self {
+    pub fn z<F: Into<i64>>(mut self, z: F) -> Self {
         self.z = Some(z.into());
         self
     }
@@ -292,12 +292,12 @@ impl Grid {
         self
     }
 
-    pub fn border_width<F: Into<f64>>(mut self, border_width: F) -> Self {
+    pub fn border_width<F: Into<i64>>(mut self, border_width: F) -> Self {
         self.border_width = Some(border_width.into());
         self
     }
 
-    pub fn shadow_blur<F: Into<f64>>(mut self, shadow_blur: F) -> Self {
+    pub fn shadow_blur<F: Into<i64>>(mut self, shadow_blur: F) -> Self {
         self.shadow_blur = Some(shadow_blur.into());
         self
     }
@@ -307,12 +307,12 @@ impl Grid {
         self
     }
 
-    pub fn shadow_offset_x<F: Into<f64>>(mut self, shadow_offset_x: F) -> Self {
+    pub fn shadow_offset_x<F: Into<i64>>(mut self, shadow_offset_x: F) -> Self {
         self.shadow_offset_x = Some(shadow_offset_x.into());
         self
     }
 
-    pub fn shadow_offset_y<F: Into<f64>>(mut self, shadow_offset_y: F) -> Self {
+    pub fn shadow_offset_y<F: Into<i64>>(mut self, shadow_offset_y: F) -> Self {
         self.shadow_offset_y = Some(shadow_offset_y.into());
         self
     }

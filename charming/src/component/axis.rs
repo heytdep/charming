@@ -27,11 +27,11 @@ pub struct Axis {
 
     /// Index of grid which is used to place this axis.
     #[serde(skip_serializing_if = "Option::is_none")]
-    grid_index: Option<f64>,
+    grid_index: Option<i64>,
 
     /// Offset of this axis relative to default position.
     #[serde(skip_serializing_if = "Option::is_none")]
-    offset: Option<f64>,
+    offset: Option<i64>,
 
     /// Name of axis.
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -47,11 +47,11 @@ pub struct Axis {
 
     /// Gap between axis name and axis line.
     #[serde(skip_serializing_if = "Option::is_none")]
-    name_gap: Option<f64>,
+    name_gap: Option<i64>,
 
     /// Rotation of axis name
     #[serde(skip_serializing_if = "Option::is_none")]
-    name_rotation: Option<f64>,
+    name_rotation: Option<i64>,
 
     /// Set this to `true` to invert the axis.
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -80,23 +80,23 @@ pub struct Axis {
 
     /// Number of segments that the axis is split into.
     #[serde(skip_serializing_if = "Option::is_none")]
-    split_number: Option<f64>,
+    split_number: Option<i64>,
 
     /// Minimum gap between split lines.
     #[serde(skip_serializing_if = "Option::is_none")]
-    min_interval: Option<f64>,
+    min_interval: Option<i64>,
 
     /// Maximum gap between split lines.
     #[serde(skip_serializing_if = "Option::is_none")]
-    max_interval: Option<f64>,
+    max_interval: Option<i64>,
 
     /// Compulsively set segmentation interval for axis.
     #[serde(skip_serializing_if = "Option::is_none")]
-    interval: Option<f64>,
+    interval: Option<i64>,
 
     /// Base of logarithm, which is valid only for numeric axes with `log` type.
     #[serde(skip_serializing_if = "Option::is_none")]
-    log_base: Option<f64>,
+    log_base: Option<i64>,
 
     /// Settings related to axis label.
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -176,12 +176,12 @@ impl Axis {
         self
     }
 
-    pub fn grid_index<F: Into<f64>>(mut self, grid_index: F) -> Self {
+    pub fn grid_index<F: Into<i64>>(mut self, grid_index: F) -> Self {
         self.grid_index = Some(grid_index.into());
         self
     }
 
-    pub fn offset<F: Into<f64>>(mut self, offset: F) -> Self {
+    pub fn offset<F: Into<i64>>(mut self, offset: F) -> Self {
         self.offset = Some(offset.into());
         self
     }
@@ -201,12 +201,12 @@ impl Axis {
         self
     }
 
-    pub fn name_gap<F: Into<f64>>(mut self, name_gap: F) -> Self {
+    pub fn name_gap<F: Into<i64>>(mut self, name_gap: F) -> Self {
         self.name_gap = Some(name_gap.into());
         self
     }
 
-    pub fn name_rotation<F: Into<f64>>(mut self, name_rotation: F) -> Self {
+    pub fn name_rotation<F: Into<i64>>(mut self, name_rotation: F) -> Self {
         self.name_rotation = Some(name_rotation.into());
         self
     }
@@ -246,27 +246,27 @@ impl Axis {
         self
     }
 
-    pub fn split_number<F: Into<f64>>(mut self, split_number: F) -> Self {
+    pub fn split_number<F: Into<i64>>(mut self, split_number: F) -> Self {
         self.split_number = Some(split_number.into());
         self
     }
 
-    pub fn min_interval<F: Into<f64>>(mut self, min_interval: F) -> Self {
+    pub fn min_interval<F: Into<i64>>(mut self, min_interval: F) -> Self {
         self.min_interval = Some(min_interval.into());
         self
     }
 
-    pub fn max_interval<F: Into<f64>>(mut self, max_interval: F) -> Self {
+    pub fn max_interval<F: Into<i64>>(mut self, max_interval: F) -> Self {
         self.max_interval = Some(max_interval.into());
         self
     }
 
-    pub fn interval<F: Into<f64>>(mut self, interval: F) -> Self {
+    pub fn interval<F: Into<i64>>(mut self, interval: F) -> Self {
         self.interval = Some(interval.into());
         self
     }
 
-    pub fn log_base<F: Into<f64>>(mut self, log_base: F) -> Self {
+    pub fn log_base<F: Into<i64>>(mut self, log_base: F) -> Self {
         self.log_base = Some(log_base.into());
         self
     }

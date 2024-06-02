@@ -20,12 +20,12 @@ impl From<&str> for ColorBy {
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
 pub struct ColorStop {
-    offset: f64,
+    offset: i64,
     color: String,
 }
 
 impl ColorStop {
-    pub fn new<F: Into<f64>, S: Into<String>>(offset: F, color: S) -> Self {
+    pub fn new<F: Into<i64>, S: Into<String>>(offset: F, color: S) -> Self {
         Self {
             offset: offset.into(),
             color: color.into(),
@@ -37,16 +37,16 @@ impl ColorStop {
 pub enum Color {
     Value(String),
     LinearGradient {
-        x: f64,
-        y: f64,
-        x2: f64,
-        y2: f64,
+        x: i64,
+        y: i64,
+        x2: i64,
+        y2: i64,
         color_stops: Vec<ColorStop>,
     },
     RadialGradient {
-        x: f64,
-        y: f64,
-        r: f64,
+        x: i64,
+        y: i64,
+        r: i64,
         color_stops: Vec<ColorStop>,
     },
 }

@@ -24,16 +24,16 @@ pub struct Scatter {
     color_by: Option<ColorBy>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    dataset_index: Option<f64>,
+    dataset_index: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     coordinate_system: Option<CoordinateSystem>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    x_axis_index: Option<f64>,
+    x_axis_index: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    y_axis_index: Option<f64>,
+    y_axis_index: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     symbol: Option<Symbol>,
@@ -97,7 +97,7 @@ impl Scatter {
         self
     }
 
-    pub fn dataset_index<F: Into<f64>>(mut self, dataset_index: F) -> Self {
+    pub fn dataset_index<F: Into<i64>>(mut self, dataset_index: F) -> Self {
         self.dataset_index = Some(dataset_index.into());
         self
     }
@@ -107,12 +107,12 @@ impl Scatter {
         self
     }
 
-    pub fn x_axis_index<F: Into<f64>>(mut self, x_axis_index: F) -> Self {
+    pub fn x_axis_index<F: Into<i64>>(mut self, x_axis_index: F) -> Self {
         self.x_axis_index = Some(x_axis_index.into());
         self
     }
 
-    pub fn y_axis_index<F: Into<f64>>(mut self, y_axis_index: F) -> Self {
+    pub fn y_axis_index<F: Into<i64>>(mut self, y_axis_index: F) -> Self {
         self.y_axis_index = Some(y_axis_index.into());
         self
     }

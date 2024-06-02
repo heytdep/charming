@@ -27,7 +27,7 @@ pub struct Radar {
     name: Option<String>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    radar_index: Option<f64>,
+    radar_index: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     symbol: Option<Symbol>,
@@ -36,10 +36,10 @@ pub struct Radar {
     symbol_keep_aspect: Option<bool>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    symbol_rotate: Option<f64>,
+    symbol_rotate: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    symbol_size: Option<f64>,
+    symbol_size: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     tooltip: Option<Tooltip>,
@@ -96,7 +96,7 @@ impl Radar {
         self
     }
 
-    pub fn radar_index<F: Into<f64>>(mut self, radar_index: F) -> Self {
+    pub fn radar_index<F: Into<i64>>(mut self, radar_index: F) -> Self {
         self.radar_index = Some(radar_index.into());
         self
     }
@@ -111,12 +111,12 @@ impl Radar {
         self
     }
 
-    pub fn symbol_rotate<F: Into<f64>>(mut self, symbol_rotate: F) -> Self {
+    pub fn symbol_rotate<F: Into<i64>>(mut self, symbol_rotate: F) -> Self {
         self.symbol_rotate = Some(symbol_rotate.into());
         self
     }
 
-    pub fn symbol_size<F: Into<f64>>(mut self, symbol_size: F) -> Self {
+    pub fn symbol_size<F: Into<i64>>(mut self, symbol_size: F) -> Self {
         self.symbol_size = Some(symbol_size.into());
         self
     }

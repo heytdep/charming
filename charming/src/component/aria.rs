@@ -17,7 +17,7 @@ pub struct DecalItem {
 
     /// The size of symbol relative to decal, ranging from 0 to 1.
     #[serde(skip_serializing_if = "Option::is_none")]
-    symbol_size: Option<f64>,
+    symbol_size: Option<i64>,
 
     /// Whether to keep the aspect ratio of the pattern.
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -43,17 +43,17 @@ pub struct DecalItem {
 
     /// The overall rotation angle (in radians) of the pattern.
     #[serde(skip_serializing_if = "Option::is_none")]
-    rotation: Option<f64>,
+    rotation: Option<i64>,
 
     /// The upper limit of the width of the generated pattern before it is
     /// duplicated.
     #[serde(skip_serializing_if = "Option::is_none")]
-    max_tile_width: Option<f64>,
+    max_tile_width: Option<i64>,
 
     /// The upper limit of the height of the generated pattern before it is
     /// duplicated.
     #[serde(skip_serializing_if = "Option::is_none")]
-    max_tile_height: Option<f64>,
+    max_tile_height: Option<i64>,
 }
 
 impl DecalItem {
@@ -77,7 +77,7 @@ impl DecalItem {
         self
     }
 
-    pub fn symbol_size<F: Into<f64>>(mut self, symbol_size: F) -> DecalItem {
+    pub fn symbol_size<F: Into<i64>>(mut self, symbol_size: F) -> DecalItem {
         self.symbol_size = Some(symbol_size.into());
         self
     }
@@ -107,17 +107,17 @@ impl DecalItem {
         self
     }
 
-    pub fn rotation<F: Into<f64>>(mut self, rotation: F) -> DecalItem {
+    pub fn rotation<F: Into<i64>>(mut self, rotation: F) -> DecalItem {
         self.rotation = Some(rotation.into());
         self
     }
 
-    pub fn max_tile_width<F: Into<f64>>(mut self, max_tile_width: F) -> DecalItem {
+    pub fn max_tile_width<F: Into<i64>>(mut self, max_tile_width: F) -> DecalItem {
         self.max_tile_width = Some(max_tile_width.into());
         self
     }
 
-    pub fn max_tile_height<F: Into<f64>>(mut self, max_tile_height: F) -> DecalItem {
+    pub fn max_tile_height<F: Into<i64>>(mut self, max_tile_height: F) -> DecalItem {
         self.max_tile_height = Some(max_tile_height.into());
         self
     }

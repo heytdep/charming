@@ -98,7 +98,7 @@ pub fn chart() -> Chart {
         .map(|(name, data)| {
             data.iter()
                 .enumerate()
-                .map(|(idx, v)| (idx as f64, *v, *name))
+                .map(|(idx, v)| (idx as i64, *v, *name))
                 .collect::<Vec<_>>()
         })
         .flatten()

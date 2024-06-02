@@ -21,16 +21,16 @@ pub struct Geo {
     center: Option<(String, String)>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    aspect_scale: Option<f64>,
+    aspect_scale: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     bounding_coords: Option<((String, String), (String, String))>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    zoom: Option<f64>,
+    zoom: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    scale_limit: Option<(f64, f64)>,
+    scale_limit: Option<(i64, i64)>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     name_map: Option<(String, String)>,
@@ -58,11 +58,11 @@ pub struct Geo {
 
     /// The `zlevel` value of all graphical elements in.
     #[serde(skip_serializing_if = "Option::is_none")]
-    zlevel: Option<f64>,
+    zlevel: Option<i64>,
 
     /// The `z` value of all graphical elements in.
     #[serde(skip_serializing_if = "Option::is_none")]
-    z: Option<f64>,
+    z: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     left: Option<CompositeValue>,
@@ -137,7 +137,7 @@ impl Geo {
         self
     }
 
-    pub fn aspect_scale<F: Into<f64>>(mut self, aspect_scale: F) -> Self {
+    pub fn aspect_scale<F: Into<i64>>(mut self, aspect_scale: F) -> Self {
         self.aspect_scale = Some(aspect_scale.into());
         self
     }
@@ -150,12 +150,12 @@ impl Geo {
         self
     }
 
-    pub fn zoom<F: Into<f64>>(mut self, zoom: F) -> Self {
+    pub fn zoom<F: Into<i64>>(mut self, zoom: F) -> Self {
         self.zoom = Some(zoom.into());
         self
     }
 
-    pub fn scale_limit<F: Into<f64>>(mut self, scale_limit: (F, F)) -> Self {
+    pub fn scale_limit<F: Into<i64>>(mut self, scale_limit: (F, F)) -> Self {
         self.scale_limit = Some((scale_limit.0.into(), scale_limit.1.into()));
         self
     }
@@ -200,12 +200,12 @@ impl Geo {
         self
     }
 
-    pub fn zlevel<F: Into<f64>>(mut self, zlevel: F) -> Self {
+    pub fn zlevel<F: Into<i64>>(mut self, zlevel: F) -> Self {
         self.zlevel = Some(zlevel.into());
         self
     }
 
-    pub fn z<F: Into<f64>>(mut self, z: F) -> Self {
+    pub fn z<F: Into<i64>>(mut self, z: F) -> Self {
         self.z = Some(z.into());
         self
     }

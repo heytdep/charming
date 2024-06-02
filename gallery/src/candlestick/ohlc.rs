@@ -12,7 +12,7 @@ use charming::{
 };
 
 pub fn chart() -> Chart {
-    let raw_data: Vec<(String, f64, f64, f64, f64, f64)> =
+    let raw_data: Vec<(String, i64, i64, i64, i64, i64)> =
         serde_json::from_str(include_str!("../../asset/stock-dji.json")).unwrap();
     let category_data = raw_data
         .iter()
@@ -21,7 +21,7 @@ pub fn chart() -> Chart {
     let data = raw_data
         .iter()
         .enumerate()
-        .map(|(i, v)| vec![i as f64, v.1, v.2, v.3, v.4])
+        .map(|(i, v)| vec![i as i64, v.1, v.2, v.3, v.4])
         .collect::<Vec<_>>();
 
     Chart::new()

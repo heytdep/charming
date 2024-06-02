@@ -27,16 +27,16 @@ pub struct GraphLayoutForce {
     init_layout: Option<String>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    gravity: Option<f64>,
+    gravity: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    edge_length: Option<f64>,
+    edge_length: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     layout_animation: Option<bool>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    friction: Option<f64>,
+    friction: Option<i64>,
 }
 
 impl GraphLayoutForce {
@@ -55,12 +55,12 @@ impl GraphLayoutForce {
         self
     }
 
-    pub fn gravity(mut self, gravity: f64) -> Self {
+    pub fn gravity(mut self, gravity: i64) -> Self {
         self.gravity = Some(gravity);
         self
     }
 
-    pub fn edge_length(mut self, edge_length: f64) -> Self {
+    pub fn edge_length(mut self, edge_length: i64) -> Self {
         self.edge_length = Some(edge_length);
         self
     }
@@ -70,7 +70,7 @@ impl GraphLayoutForce {
         self
     }
 
-    pub fn friction(mut self, friction: f64) -> Self {
+    pub fn friction(mut self, friction: i64) -> Self {
         self.friction = Some(friction);
         self
     }
@@ -156,11 +156,11 @@ impl GraphNodeLabel {
 pub struct GraphNode {
     pub id: String,
     pub name: String,
-    pub x: f64,
-    pub y: f64,
-    pub value: f64,
+    pub x: i64,
+    pub y: i64,
+    pub value: i64,
     pub category: u64,
-    pub symbol_size: f64,
+    pub symbol_size: i64,
     #[serde(skip_deserializing)]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub label: Option<GraphNodeLabel>,
@@ -172,7 +172,7 @@ pub struct GraphLink {
     pub source: String,
     pub target: String,
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub value: Option<f64>,
+    pub value: Option<i64>,
 }
 
 #[derive(Serialize, Deserialize)]

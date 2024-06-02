@@ -32,10 +32,10 @@ pub struct RadarAxisName {
     font_family: Option<String>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    font_size: Option<f64>,
+    font_size: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    line_height: Option<f64>,
+    line_height: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     background_color: Option<Color>,
@@ -44,13 +44,13 @@ pub struct RadarAxisName {
     border_color: Option<Color>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    border_width: Option<f64>,
+    border_width: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     border_type: Option<String>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    border_dash_offset: Option<f64>,
+    border_dash_offset: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     border_radius: Option<CompositeValue>,
@@ -62,13 +62,13 @@ pub struct RadarAxisName {
     shadow_color: Option<Color>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    shadow_blur: Option<f64>,
+    shadow_blur: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    shadow_offset_x: Option<f64>,
+    shadow_offset_x: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    shadow_offset_y: Option<f64>,
+    shadow_offset_y: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     width: Option<CompositeValue>,
@@ -80,25 +80,25 @@ pub struct RadarAxisName {
     text_border_color: Option<Color>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    text_border_width: Option<f64>,
+    text_border_width: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     text_border_type: Option<String>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    text_border_dash_offset: Option<f64>,
+    text_border_dash_offset: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     text_shadow_color: Option<Color>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    text_shadow_blur: Option<f64>,
+    text_shadow_blur: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    text_shadow_offset_x: Option<f64>,
+    text_shadow_offset_x: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    text_shadow_offset_y: Option<f64>,
+    text_shadow_offset_y: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     overflow: Option<String>,
@@ -170,12 +170,12 @@ impl RadarAxisName {
         self
     }
 
-    pub fn font_size<F: Into<f64>>(mut self, font_size: F) -> Self {
+    pub fn font_size<F: Into<i64>>(mut self, font_size: F) -> Self {
         self.font_size = Some(font_size.into());
         self
     }
 
-    pub fn line_height<F: Into<f64>>(mut self, line_height: F) -> Self {
+    pub fn line_height<F: Into<i64>>(mut self, line_height: F) -> Self {
         self.line_height = Some(line_height.into());
         self
     }
@@ -190,7 +190,7 @@ impl RadarAxisName {
         self
     }
 
-    pub fn border_width<F: Into<f64>>(mut self, border_width: F) -> Self {
+    pub fn border_width<F: Into<i64>>(mut self, border_width: F) -> Self {
         self.border_width = Some(border_width.into());
         self
     }
@@ -200,7 +200,7 @@ impl RadarAxisName {
         self
     }
 
-    pub fn border_dash_offset<F: Into<f64>>(mut self, border_dash_offset: F) -> Self {
+    pub fn border_dash_offset<F: Into<i64>>(mut self, border_dash_offset: F) -> Self {
         self.border_dash_offset = Some(border_dash_offset.into());
         self
     }
@@ -220,17 +220,17 @@ impl RadarAxisName {
         self
     }
 
-    pub fn shadow_blur<F: Into<f64>>(mut self, shadow_blur: F) -> Self {
+    pub fn shadow_blur<F: Into<i64>>(mut self, shadow_blur: F) -> Self {
         self.shadow_blur = Some(shadow_blur.into());
         self
     }
 
-    pub fn shadow_offset_x<F: Into<f64>>(mut self, shadow_offset_x: F) -> Self {
+    pub fn shadow_offset_x<F: Into<i64>>(mut self, shadow_offset_x: F) -> Self {
         self.shadow_offset_x = Some(shadow_offset_x.into());
         self
     }
 
-    pub fn shadow_offset_y<F: Into<f64>>(mut self, shadow_offset_y: F) -> Self {
+    pub fn shadow_offset_y<F: Into<i64>>(mut self, shadow_offset_y: F) -> Self {
         self.shadow_offset_y = Some(shadow_offset_y.into());
         self
     }
@@ -250,7 +250,7 @@ impl RadarAxisName {
         self
     }
 
-    pub fn text_border_width<F: Into<f64>>(mut self, text_border_width: F) -> Self {
+    pub fn text_border_width<F: Into<i64>>(mut self, text_border_width: F) -> Self {
         self.text_border_width = Some(text_border_width.into());
         self
     }
@@ -260,7 +260,7 @@ impl RadarAxisName {
         self
     }
 
-    pub fn text_border_dash_offset<F: Into<f64>>(mut self, text_border_dash_offset: F) -> Self {
+    pub fn text_border_dash_offset<F: Into<i64>>(mut self, text_border_dash_offset: F) -> Self {
         self.text_border_dash_offset = Some(text_border_dash_offset.into());
         self
     }
@@ -270,17 +270,17 @@ impl RadarAxisName {
         self
     }
 
-    pub fn text_shadow_blur<F: Into<f64>>(mut self, text_shadow_blur: F) -> Self {
+    pub fn text_shadow_blur<F: Into<i64>>(mut self, text_shadow_blur: F) -> Self {
         self.text_shadow_blur = Some(text_shadow_blur.into());
         self
     }
 
-    pub fn text_shadow_offset_x<F: Into<f64>>(mut self, text_shadow_offset_x: F) -> Self {
+    pub fn text_shadow_offset_x<F: Into<i64>>(mut self, text_shadow_offset_x: F) -> Self {
         self.text_shadow_offset_x = Some(text_shadow_offset_x.into());
         self
     }
 
-    pub fn text_shadow_offset_y<F: Into<f64>>(mut self, text_shadow_offset_y: F) -> Self {
+    pub fn text_shadow_offset_y<F: Into<i64>>(mut self, text_shadow_offset_y: F) -> Self {
         self.text_shadow_offset_y = Some(text_shadow_offset_y.into());
         self
     }
@@ -298,10 +298,10 @@ pub struct RadarIndicator {
     name: Option<String>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    max: Option<f64>,
+    max: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    min: Option<f64>,
+    min: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     color: Option<Color>,
@@ -322,12 +322,12 @@ impl RadarIndicator {
         self
     }
 
-    pub fn max(mut self, max: impl Into<f64>) -> Self {
+    pub fn max(mut self, max: impl Into<i64>) -> Self {
         self.max = Some(max.into());
         self
     }
 
-    pub fn min(mut self, min: impl Into<f64>) -> Self {
+    pub fn min(mut self, min: impl Into<i64>) -> Self {
         self.min = Some(min.into());
         self
     }
@@ -338,8 +338,8 @@ impl RadarIndicator {
     }
 }
 
-impl From<(&str, f64, f64)> for RadarIndicator {
-    fn from((name, min, max): (&str, f64, f64)) -> Self {
+impl From<(&str, i64, i64)> for RadarIndicator {
+    fn from((name, min, max): (&str, i64, i64)) -> Self {
         Self {
             name: Some(name.into()),
             min: Some(min),
@@ -349,16 +349,7 @@ impl From<(&str, f64, f64)> for RadarIndicator {
     }
 }
 
-impl From<(&str, i64, i64)> for RadarIndicator {
-    fn from((name, min, max): (&str, i64, i64)) -> Self {
-        Self {
-            name: Some(name.into()),
-            min: Some(min as f64),
-            max: Some(max as f64),
-            color: None,
-        }
-    }
-}
+
 
 #[derive(Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -368,11 +359,11 @@ pub struct RadarCoordinate {
 
     /// The `zlevel` value of all graphical elements in.
     #[serde(skip_serializing_if = "Option::is_none")]
-    zlevel: Option<f64>,
+    zlevel: Option<i64>,
 
     /// The `z` value of all graphical elements in.
     #[serde(skip_serializing_if = "Option::is_none")]
-    z: Option<f64>,
+    z: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     center: Option<CompositeValue>,
@@ -381,16 +372,16 @@ pub struct RadarCoordinate {
     radius: Option<CompositeValue>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    start_angle: Option<f64>,
+    start_angle: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     axis_name: Option<RadarAxisName>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    name_gap: Option<f64>,
+    name_gap: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    split_number: Option<f64>,
+    split_number: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     shape: Option<Shape>,
@@ -450,7 +441,7 @@ impl RadarCoordinate {
         self
     }
 
-    pub fn start_angle<F: Into<f64>>(mut self, start_angle: F) -> Self {
+    pub fn start_angle<F: Into<i64>>(mut self, start_angle: F) -> Self {
         self.start_angle = Some(start_angle.into());
         self
     }
@@ -460,12 +451,12 @@ impl RadarCoordinate {
         self
     }
 
-    pub fn name_gap<F: Into<f64>>(mut self, name_gap: F) -> Self {
+    pub fn name_gap<F: Into<i64>>(mut self, name_gap: F) -> Self {
         self.name_gap = Some(name_gap.into());
         self
     }
 
-    pub fn split_number<F: Into<f64>>(mut self, split_number: F) -> Self {
+    pub fn split_number<F: Into<i64>>(mut self, split_number: F) -> Self {
         self.split_number = Some(split_number.into());
         self
     }

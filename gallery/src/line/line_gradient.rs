@@ -96,7 +96,7 @@ pub fn chart() -> Chart {
                 .dimension(0)
                 .min(0)
                 .max(10)
-                .max((data_list.len() - 1) as f64),
+                .max((data_list.len() - 1) as i64),
         )
         .x_axis(Axis::new().data(data_list.to_vec()))
         .x_axis(

@@ -21,7 +21,7 @@ pub struct Pointer {
     length: Option<String>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    width: Option<f64>,
+    width: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     keep_aspect: Option<bool>,
@@ -69,7 +69,7 @@ impl Pointer {
         self
     }
 
-    pub fn width<F: Into<f64>>(mut self, width: F) -> Self {
+    pub fn width<F: Into<i64>>(mut self, width: F) -> Self {
         self.width = Some(width.into());
         self
     }

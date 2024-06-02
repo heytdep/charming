@@ -25,10 +25,10 @@ pub struct ParallelAxisDefault {
     name_text_style: Option<TextStyle>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    name_gap: Option<f64>,
+    name_gap: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    name_rotate: Option<f64>,
+    name_rotate: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     inverse: Option<bool>,
@@ -37,28 +37,28 @@ pub struct ParallelAxisDefault {
     boundary_gap: Option<BoundaryGap>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    min: Option<f64>,
+    min: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    max: Option<f64>,
+    max: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     scale: Option<bool>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    split_number: Option<f64>,
+    split_number: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    min_interval: Option<f64>,
+    min_interval: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    max_interval: Option<f64>,
+    max_interval: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    interval: Option<f64>,
+    interval: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    log_base: Option<f64>,
+    log_base: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     silent: Option<bool>,
@@ -131,12 +131,12 @@ impl ParallelAxisDefault {
         self
     }
 
-    pub fn name_gap<F: Into<f64>>(mut self, name_gap: F) -> Self {
+    pub fn name_gap<F: Into<i64>>(mut self, name_gap: F) -> Self {
         self.name_gap = Some(name_gap.into());
         self
     }
 
-    pub fn name_rotate<F: Into<f64>>(mut self, name_rotate: F) -> Self {
+    pub fn name_rotate<F: Into<i64>>(mut self, name_rotate: F) -> Self {
         self.name_rotate = Some(name_rotate.into());
         self
     }
@@ -151,12 +151,12 @@ impl ParallelAxisDefault {
         self
     }
 
-    pub fn min<F: Into<f64>>(mut self, min: F) -> Self {
+    pub fn min<F: Into<i64>>(mut self, min: F) -> Self {
         self.min = Some(min.into());
         self
     }
 
-    pub fn max<F: Into<f64>>(mut self, max: F) -> Self {
+    pub fn max<F: Into<i64>>(mut self, max: F) -> Self {
         self.max = Some(max.into());
         self
     }
@@ -166,27 +166,27 @@ impl ParallelAxisDefault {
         self
     }
 
-    pub fn split_number<F: Into<f64>>(mut self, split_number: F) -> Self {
+    pub fn split_number<F: Into<i64>>(mut self, split_number: F) -> Self {
         self.split_number = Some(split_number.into());
         self
     }
 
-    pub fn min_interval<F: Into<f64>>(mut self, min_interval: F) -> Self {
+    pub fn min_interval<F: Into<i64>>(mut self, min_interval: F) -> Self {
         self.min_interval = Some(min_interval.into());
         self
     }
 
-    pub fn max_interval<F: Into<f64>>(mut self, max_interval: F) -> Self {
+    pub fn max_interval<F: Into<i64>>(mut self, max_interval: F) -> Self {
         self.max_interval = Some(max_interval.into());
         self
     }
 
-    pub fn interval<F: Into<f64>>(mut self, interval: F) -> Self {
+    pub fn interval<F: Into<i64>>(mut self, interval: F) -> Self {
         self.interval = Some(interval.into());
         self
     }
 
-    pub fn log_base<F: Into<f64>>(mut self, log_base: F) -> Self {
+    pub fn log_base<F: Into<i64>>(mut self, log_base: F) -> Self {
         self.log_base = Some(log_base.into());
         self
     }
@@ -234,10 +234,10 @@ pub struct ParallelCoordinate {
     id: Option<String>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    zlevel: Option<f64>,
+    zlevel: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    z: Option<f64>,
+    z: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     left: Option<CompositeValue>,
@@ -286,12 +286,12 @@ impl ParallelCoordinate {
         self
     }
 
-    pub fn zlevel<F: Into<f64>>(mut self, zlevel: F) -> Self {
+    pub fn zlevel<F: Into<i64>>(mut self, zlevel: F) -> Self {
         self.zlevel = Some(zlevel.into());
         self
     }
 
-    pub fn z<F: Into<f64>>(mut self, z: F) -> Self {
+    pub fn z<F: Into<i64>>(mut self, z: F) -> Self {
         self.z = Some(z.into());
         self
     }

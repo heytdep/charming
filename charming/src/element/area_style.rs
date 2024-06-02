@@ -20,7 +20,7 @@ pub struct AreaStyle {
     origin: Option<OriginPosition>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    opacity: Option<f64>,
+    opacity: Option<i64>,
 }
 
 impl AreaStyle {
@@ -42,7 +42,7 @@ impl AreaStyle {
         self
     }
 
-    pub fn opacity<F: Into<f64>>(mut self, opacity: F) -> Self {
+    pub fn opacity<F: Into<i64>>(mut self, opacity: F) -> Self {
         self.opacity = Some(opacity.into());
         self
     }

@@ -85,11 +85,11 @@ pub struct Legend {
 
     /// The `zlevel` value of all graphical elements in.
     #[serde(skip_serializing_if = "Option::is_none")]
-    zlevel: Option<f64>,
+    zlevel: Option<i64>,
 
     /// The `z` value of all graphical elements in.
     #[serde(skip_serializing_if = "Option::is_none")]
-    z: Option<f64>,
+    z: Option<i64>,
 
     /// Distance between title component and the left side of the container.
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -129,15 +129,15 @@ pub struct Legend {
 
     /// The gap between each legend.
     #[serde(skip_serializing_if = "Option::is_none")]
-    item_gap: Option<f64>,
+    item_gap: Option<i64>,
 
     /// Width of legend symbol.
     #[serde(skip_serializing_if = "Option::is_none")]
-    item_width: Option<f64>,
+    item_width: Option<i64>,
 
     /// Height of legend symbol.
     #[serde(skip_serializing_if = "Option::is_none")]
-    item_height: Option<f64>,
+    item_height: Option<i64>,
 
     /// Legend item style.
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -213,12 +213,12 @@ impl Legend {
         self
     }
 
-    pub fn zlevel<F: Into<f64>>(mut self, zlevel: F) -> Self {
+    pub fn zlevel<F: Into<i64>>(mut self, zlevel: F) -> Self {
         self.zlevel = Some(zlevel.into());
         self
     }
 
-    pub fn z<F: Into<f64>>(mut self, z: F) -> Self {
+    pub fn z<F: Into<i64>>(mut self, z: F) -> Self {
         self.z = Some(z.into());
         self
     }
@@ -268,17 +268,17 @@ impl Legend {
         self
     }
 
-    pub fn item_gap<F: Into<f64>>(mut self, item_gap: F) -> Self {
+    pub fn item_gap<F: Into<i64>>(mut self, item_gap: F) -> Self {
         self.item_gap = Some(item_gap.into());
         self
     }
 
-    pub fn item_width<F: Into<f64>>(mut self, item_width: F) -> Self {
+    pub fn item_width<F: Into<i64>>(mut self, item_width: F) -> Self {
         self.item_width = Some(item_width.into());
         self
     }
 
-    pub fn item_height<F: Into<f64>>(mut self, item_height: F) -> Self {
+    pub fn item_height<F: Into<i64>>(mut self, item_height: F) -> Self {
         self.item_height = Some(item_height.into());
         self
     }

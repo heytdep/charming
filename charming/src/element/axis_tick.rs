@@ -9,13 +9,13 @@ pub struct AxisTick {
     show: Option<bool>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    split_number: Option<f64>,
+    split_number: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    length: Option<f64>,
+    length: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    distance: Option<f64>,
+    distance: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     line_style: Option<LineStyle>,
@@ -37,17 +37,17 @@ impl AxisTick {
         self
     }
 
-    pub fn split_number<F: Into<f64>>(mut self, split_number: F) -> Self {
+    pub fn split_number<F: Into<i64>>(mut self, split_number: F) -> Self {
         self.split_number = Some(split_number.into());
         self
     }
 
-    pub fn length<F: Into<f64>>(mut self, length: F) -> Self {
+    pub fn length<F: Into<i64>>(mut self, length: F) -> Self {
         self.length = Some(length.into());
         self
     }
 
-    pub fn distance<F: Into<f64>>(mut self, distance: F) -> Self {
+    pub fn distance<F: Into<i64>>(mut self, distance: F) -> Self {
         self.distance = Some(distance.into());
         self
     }

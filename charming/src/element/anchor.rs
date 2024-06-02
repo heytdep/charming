@@ -12,7 +12,7 @@ pub struct Anchor {
     show_above: Option<bool>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    size: Option<f64>,
+    size: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     icon: Option<Icon>,
@@ -50,7 +50,7 @@ impl Anchor {
         self
     }
 
-    pub fn size<F: Into<f64>>(mut self, size: F) -> Self {
+    pub fn size<F: Into<i64>>(mut self, size: F) -> Self {
         self.size = Some(size.into());
         self
     }

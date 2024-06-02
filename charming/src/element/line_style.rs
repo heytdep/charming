@@ -17,17 +17,17 @@ pub struct LineStyle {
     color: Option<Color>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    width: Option<f64>,
+    width: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     #[serde(rename = "type")]
     type_: Option<LineStyleType>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    opacity: Option<f64>,
+    opacity: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    curveness: Option<f64>,
+    curveness: Option<i64>,
 }
 
 impl LineStyle {
@@ -46,7 +46,7 @@ impl LineStyle {
         self
     }
 
-    pub fn width<F: Into<f64>>(mut self, width: F) -> Self {
+    pub fn width<F: Into<i64>>(mut self, width: F) -> Self {
         self.width = Some(width.into());
         self
     }
@@ -56,12 +56,12 @@ impl LineStyle {
         self
     }
 
-    pub fn opacity<F: Into<f64>>(mut self, opacity: F) -> Self {
+    pub fn opacity<F: Into<i64>>(mut self, opacity: F) -> Self {
         self.opacity = Some(opacity.into());
         self
     }
 
-    pub fn curveness<F: Into<f64>>(mut self, curveness: F) -> Self {
+    pub fn curveness<F: Into<i64>>(mut self, curveness: F) -> Self {
         self.curveness = Some(curveness.into());
         self
     }

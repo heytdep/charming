@@ -19,10 +19,10 @@ pub struct SankeyNode {
     pub name: String,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub value: Option<f64>,
+    pub value: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub depth: Option<f64>,
+    pub depth: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     pub item_style: Option<ItemStyle>,
@@ -38,11 +38,11 @@ impl SankeyNode {
         }
     }
 
-    pub fn value<V: Into<f64>>(mut self, value: V) -> Self {
+    pub fn value<V: Into<i64>>(mut self, value: V) -> Self {
         self.value = Some(value.into());
         self
     }
-    pub fn depth<D: Into<f64>>(mut self, depth: D) -> Self {
+    pub fn depth<D: Into<i64>>(mut self, depth: D) -> Self {
         self.depth = Some(depth.into());
         self
     }
@@ -72,13 +72,13 @@ impl<S> From<S> for SankeyNode
 pub struct SankeyLink {
     pub source: String,
     pub target: String,
-    pub value: f64,
+    pub value: i64,
 }
 
 impl<S, F> From<(S, S, F)> for SankeyLink
 where
     S: Into<String>,
-    F: Into<f64>,
+    F: Into<i64>,
 {
     fn from((source, target, value): (S, S, F)) -> Self {
         SankeyLink {
@@ -102,10 +102,10 @@ pub struct Sankey {
     name: Option<String>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    z_level: Option<f64>,
+    z_level: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    z: Option<f64>,
+    z: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     left: Option<CompositeValue>,
@@ -120,10 +120,10 @@ pub struct Sankey {
     bottom: Option<CompositeValue>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    width: Option<f64>,
+    width: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    height: Option<f64>,
+    height: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     emphasis: Option<Emphasis>,
@@ -185,12 +185,12 @@ impl Sankey {
         self
     }
 
-    pub fn z_level<F: Into<f64>>(mut self, z_level: F) -> Self {
+    pub fn z_level<F: Into<i64>>(mut self, z_level: F) -> Self {
         self.z_level = Some(z_level.into());
         self
     }
 
-    pub fn z<F: Into<f64>>(mut self, z: F) -> Self {
+    pub fn z<F: Into<i64>>(mut self, z: F) -> Self {
         self.z = Some(z.into());
         self
     }
@@ -215,12 +215,12 @@ impl Sankey {
         self
     }
 
-    pub fn width<F: Into<f64>>(mut self, width: F) -> Self {
+    pub fn width<F: Into<i64>>(mut self, width: F) -> Self {
         self.width = Some(width.into());
         self
     }
 
-    pub fn height<F: Into<f64>>(mut self, height: F) -> Self {
+    pub fn height<F: Into<i64>>(mut self, height: F) -> Self {
         self.height = Some(height.into());
         self
     }

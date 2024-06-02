@@ -16,22 +16,22 @@ pub enum VisualMapType {
 #[serde(rename_all = "camelCase")]
 pub struct VisualMapPiece {
     #[serde(skip_serializing_if = "Option::is_none")]
-    min: Option<f64>,
+    min: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    max: Option<f64>,
+    max: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    lt: Option<f64>,
+    lt: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    lte: Option<f64>,
+    lte: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    gt: Option<f64>,
+    gt: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    gte: Option<f64>,
+    gte: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     label: Option<String>,
@@ -54,32 +54,32 @@ impl VisualMapPiece {
         }
     }
 
-    pub fn min<F: Into<f64>>(mut self, min: F) -> Self {
+    pub fn min<F: Into<i64>>(mut self, min: F) -> Self {
         self.min = Some(min.into());
         self
     }
 
-    pub fn max<F: Into<f64>>(mut self, max: F) -> Self {
+    pub fn max<F: Into<i64>>(mut self, max: F) -> Self {
         self.max = Some(max.into());
         self
     }
 
-    pub fn lt<F: Into<f64>>(mut self, lt: F) -> Self {
+    pub fn lt<F: Into<i64>>(mut self, lt: F) -> Self {
         self.lt = Some(lt.into());
         self
     }
 
-    pub fn lte<F: Into<f64>>(mut self, lte: F) -> Self {
+    pub fn lte<F: Into<i64>>(mut self, lte: F) -> Self {
         self.lte = Some(lte.into());
         self
     }
 
-    pub fn gt<F: Into<f64>>(mut self, gt: F) -> Self {
+    pub fn gt<F: Into<i64>>(mut self, gt: F) -> Self {
         self.gt = Some(gt.into());
         self
     }
 
-    pub fn gte<F: Into<f64>>(mut self, gte: F) -> Self {
+    pub fn gte<F: Into<i64>>(mut self, gte: F) -> Self {
         self.gte = Some(gte.into());
         self
     }
@@ -95,29 +95,19 @@ impl VisualMapPiece {
     }
 }
 
-impl From<(f64, f64)> for VisualMapPiece {
-    fn from((min, max): (f64, f64)) -> Self {
-        Self::new().min(min).max(max)
-    }
-}
-
 impl From<(i64, i64)> for VisualMapPiece {
     fn from((min, max): (i64, i64)) -> Self {
-        Self::new().min(min as f64).max(max as f64)
-    }
-}
-
-impl From<(f64, f64, &str)> for VisualMapPiece {
-    fn from((min, max, label): (f64, f64, &str)) -> Self {
-        Self::new().min(min).max(max).label(label)
+        Self::new().min(min).max(max)
     }
 }
 
 impl From<(i64, i64, &str)> for VisualMapPiece {
     fn from((min, max, label): (i64, i64, &str)) -> Self {
-        Self::new().min(min as f64).max(max as f64).label(label)
+        Self::new().min(min).max(max).label(label)
     }
 }
+
+
 
 #[derive(Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -154,13 +144,13 @@ pub struct VisualMap {
     dimension: Option<CompositeValue>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    series_index: Option<f64>,
+    series_index: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    min: Option<f64>,
+    min: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    max: Option<f64>,
+    max: Option<i64>,
 
     #[serde(skip_serializing_if = "Vec::is_empty")]
     categories: Vec<String>,
@@ -187,7 +177,7 @@ pub struct VisualMap {
     text_style: Option<TextStyle>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    range: Option<(f64, f64)>,
+    range: Option<(i64, i64)>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     realtime: Option<bool>,
@@ -196,13 +186,13 @@ pub struct VisualMap {
     inverse: Option<bool>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    precision: Option<f64>,
+    precision: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    item_width: Option<f64>,
+    item_width: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    item_height: Option<f64>,
+    item_height: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     in_range: Option<VisualMapChannel>,
@@ -264,17 +254,17 @@ impl VisualMap {
         self
     }
 
-    pub fn series_index<F: Into<f64>>(mut self, series_index: F) -> Self {
+    pub fn series_index<F: Into<i64>>(mut self, series_index: F) -> Self {
         self.series_index = Some(series_index.into());
         self
     }
 
-    pub fn min<F: Into<f64>>(mut self, min: F) -> Self {
+    pub fn min<F: Into<i64>>(mut self, min: F) -> Self {
         self.min = Some(min.into());
         self
     }
 
-    pub fn max<F: Into<f64>>(mut self, max: F) -> Self {
+    pub fn max<F: Into<i64>>(mut self, max: F) -> Self {
         self.max = Some(max.into());
         self
     }
@@ -319,7 +309,7 @@ impl VisualMap {
         self
     }
 
-    pub fn range<F: Into<f64>>(mut self, range: (F, F)) -> Self {
+    pub fn range<F: Into<i64>>(mut self, range: (F, F)) -> Self {
         self.range = Some((range.0.into(), range.1.into()));
         self
     }
@@ -334,17 +324,17 @@ impl VisualMap {
         self
     }
 
-    pub fn precision<F: Into<f64>>(mut self, precision: F) -> Self {
+    pub fn precision<F: Into<i64>>(mut self, precision: F) -> Self {
         self.precision = Some(precision.into());
         self
     }
 
-    pub fn item_width<F: Into<f64>>(mut self, item_width: F) -> Self {
+    pub fn item_width<F: Into<i64>>(mut self, item_width: F) -> Self {
         self.item_width = Some(item_width.into());
         self
     }
 
-    pub fn item_height<F: Into<f64>>(mut self, item_height: F) -> Self {
+    pub fn item_height<F: Into<i64>>(mut self, item_height: F) -> Self {
         self.item_height = Some(item_height.into());
         self
     }

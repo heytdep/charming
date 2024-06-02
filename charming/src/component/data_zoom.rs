@@ -65,28 +65,28 @@ pub struct DataZoom {
     border_color: Option<Color>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    start: Option<f64>,
+    start: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    end: Option<f64>,
+    end: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    start_value: Option<f64>,
+    start_value: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    end_value: Option<f64>,
+    end_value: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    min_span: Option<f64>,
+    min_span: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    max_span: Option<f64>,
+    max_span: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    min_value_span: Option<f64>,
+    min_value_span: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    max_value_span: Option<f64>,
+    max_value_span: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     orient: Option<Orient>,
@@ -95,7 +95,7 @@ pub struct DataZoom {
     zoom_lock: Option<bool>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    throttle: Option<f64>,
+    throttle: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     left: Option<CompositeValue>,
@@ -119,10 +119,10 @@ pub struct DataZoom {
     disabled: Option<bool>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    radius_axis_index: Option<f64>,
+    radius_axis_index: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    angle_axis_index: Option<f64>,
+    angle_axis_index: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     filter_mode: Option<FilterMode>,
@@ -224,42 +224,42 @@ impl DataZoom {
         self
     }
 
-    pub fn start<F: Into<f64>>(mut self, start: F) -> Self {
+    pub fn start<F: Into<i64>>(mut self, start: F) -> Self {
         self.start = Some(start.into());
         self
     }
 
-    pub fn end<F: Into<f64>>(mut self, end: F) -> Self {
+    pub fn end<F: Into<i64>>(mut self, end: F) -> Self {
         self.end = Some(end.into());
         self
     }
 
-    pub fn start_value<F: Into<f64>>(mut self, start_value: F) -> Self {
+    pub fn start_value<F: Into<i64>>(mut self, start_value: F) -> Self {
         self.start_value = Some(start_value.into());
         self
     }
 
-    pub fn end_value<F: Into<f64>>(mut self, end_value: F) -> Self {
+    pub fn end_value<F: Into<i64>>(mut self, end_value: F) -> Self {
         self.end_value = Some(end_value.into());
         self
     }
 
-    pub fn min_span<F: Into<f64>>(mut self, min_span: F) -> Self {
+    pub fn min_span<F: Into<i64>>(mut self, min_span: F) -> Self {
         self.min_span = Some(min_span.into());
         self
     }
 
-    pub fn max_span<F: Into<f64>>(mut self, max_span: F) -> Self {
+    pub fn max_span<F: Into<i64>>(mut self, max_span: F) -> Self {
         self.max_span = Some(max_span.into());
         self
     }
 
-    pub fn min_value_span<F: Into<f64>>(mut self, min_value_span: F) -> Self {
+    pub fn min_value_span<F: Into<i64>>(mut self, min_value_span: F) -> Self {
         self.min_value_span = Some(min_value_span.into());
         self
     }
 
-    pub fn max_value_span<F: Into<f64>>(mut self, max_value_span: F) -> Self {
+    pub fn max_value_span<F: Into<i64>>(mut self, max_value_span: F) -> Self {
         self.max_value_span = Some(max_value_span.into());
         self
     }
@@ -274,7 +274,7 @@ impl DataZoom {
         self
     }
 
-    pub fn throttle<F: Into<f64>>(mut self, throttle: F) -> Self {
+    pub fn throttle<F: Into<i64>>(mut self, throttle: F) -> Self {
         self.throttle = Some(throttle.into());
         self
     }
@@ -314,12 +314,12 @@ impl DataZoom {
         self
     }
 
-    pub fn radius_axis_index<F: Into<f64>>(mut self, radius_axis_index: F) -> Self {
+    pub fn radius_axis_index<F: Into<i64>>(mut self, radius_axis_index: F) -> Self {
         self.radius_axis_index = Some(radius_axis_index.into());
         self
     }
 
-    pub fn angle_axis_index<F: Into<f64>>(mut self, angle_axis_index: F) -> Self {
+    pub fn angle_axis_index<F: Into<i64>>(mut self, angle_axis_index: F) -> Self {
         self.angle_axis_index = Some(angle_axis_index.into());
         self
     }

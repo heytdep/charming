@@ -14,14 +14,14 @@ pub fn chart() -> Chart {
     raw_data.reverse();
 
     let dates: Vec<&str> = raw_data.iter().map(|row| row[0]).collect();
-    let data: Vec<Vec<f64>> = raw_data
+    let data: Vec<Vec<i64>> = raw_data
         .iter()
         .map(|row| {
             vec![
-                row[1].parse::<f64>().unwrap_or(0.),
-                row[2].parse::<f64>().unwrap_or(0.),
-                row[5].parse::<f64>().unwrap_or(0.),
-                row[6].parse::<f64>().unwrap_or(0.),
+                row[1].parse::<i64>().unwrap_or(0.),
+                row[2].parse::<i64>().unwrap_or(0.),
+                row[5].parse::<i64>().unwrap_or(0.),
+                row[6].parse::<i64>().unwrap_or(0.),
             ]
         })
         .collect();
@@ -93,7 +93,7 @@ pub fn chart() -> Chart {
         )
 }
 
-fn calculate_ma(day_count: usize, data: &Vec<Vec<f64>>) -> Vec<CompositeValue> {
+fn calculate_ma(day_count: usize, data: &Vec<Vec<i64>>) -> Vec<CompositeValue> {
     let mut result = vec![];
     for i in 0..data.len() {
         if i < day_count {
@@ -104,7 +104,7 @@ fn calculate_ma(day_count: usize, data: &Vec<Vec<f64>>) -> Vec<CompositeValue> {
         for j in 0..day_count {
             sum += data[i - j][1];
         }
-        result.push((sum / day_count as f64).into());
+        result.push((sum / day_count as i64).into());
     }
 
     result

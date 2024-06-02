@@ -55,7 +55,7 @@ pub struct TreeNode {
     pub name: String,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub value: Option<f64>,
+    pub value: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     pub collapsed: Option<bool>,
@@ -109,7 +109,7 @@ pub struct Tree {
     center: Option<CompositeValue>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    zoom: Option<f64>,
+    zoom: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     layout: Option<TreeLayout>,
@@ -121,10 +121,10 @@ pub struct Tree {
     symbol: Option<Symbol>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    symbol_size: Option<f64>,
+    symbol_size: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    symbol_rotate: Option<f64>,
+    symbol_rotate: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     symbol_keep_aspect: Option<bool>,
@@ -142,7 +142,7 @@ pub struct Tree {
     roam: Option<bool>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    initial_tree_depth: Option<f64>,
+    initial_tree_depth: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     item_style: Option<ItemStyle>,
@@ -166,10 +166,10 @@ pub struct Tree {
     expand_and_collapse: Option<bool>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    animation_duration: Option<f64>,
+    animation_duration: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    animation_duration_update: Option<f64>,
+    animation_duration_update: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     leaves: Option<TreeLeaves>,
@@ -274,7 +274,7 @@ impl Tree {
         self
     }
 
-    pub fn zoom<F: Into<f64>>(mut self, zoom: F) -> Self {
+    pub fn zoom<F: Into<i64>>(mut self, zoom: F) -> Self {
         self.zoom = Some(zoom.into());
         self
     }
@@ -294,12 +294,12 @@ impl Tree {
         self
     }
 
-    pub fn symbol_size<F: Into<f64>>(mut self, symbol_size: F) -> Self {
+    pub fn symbol_size<F: Into<i64>>(mut self, symbol_size: F) -> Self {
         self.symbol_size = Some(symbol_size.into());
         self
     }
 
-    pub fn symbol_rotate<F: Into<f64>>(mut self, symbol_rotate: F) -> Self {
+    pub fn symbol_rotate<F: Into<i64>>(mut self, symbol_rotate: F) -> Self {
         self.symbol_rotate = Some(symbol_rotate.into());
         self
     }
@@ -329,7 +329,7 @@ impl Tree {
         self
     }
 
-    pub fn initial_tree_depth<F: Into<f64>>(mut self, initial_tree_depth: F) -> Self {
+    pub fn initial_tree_depth<F: Into<i64>>(mut self, initial_tree_depth: F) -> Self {
         self.initial_tree_depth = Some(initial_tree_depth.into());
         self
     }
@@ -369,12 +369,12 @@ impl Tree {
         self
     }
 
-    pub fn animation_duration<F: Into<f64>>(mut self, animation_duration: F) -> Self {
+    pub fn animation_duration<F: Into<i64>>(mut self, animation_duration: F) -> Self {
         self.animation_duration = Some(animation_duration.into());
         self
     }
 
-    pub fn animation_duration_update<F: Into<f64>>(mut self, animation_duration_update: F) -> Self {
+    pub fn animation_duration_update<F: Into<i64>>(mut self, animation_duration_update: F) -> Self {
         self.animation_duration_update = Some(animation_duration_update.into());
         self
     }

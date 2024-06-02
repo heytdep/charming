@@ -49,7 +49,7 @@ pub struct Tooltip {
     border_color: Option<Color>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    border_width: Option<f64>,
+    border_width: Option<i64>,
 }
 
 impl Tooltip {
@@ -107,7 +107,7 @@ impl Tooltip {
         self
     }
 
-    pub fn border_width<F: Into<f64>>(mut self, border_width: F) -> Self {
+    pub fn border_width<F: Into<i64>>(mut self, border_width: F) -> Self {
         self.border_width = Some(border_width.into());
         self
     }

@@ -63,15 +63,15 @@ pub struct Title {
 
     /// The gap between the main title and the sub title, the unit is px.
     #[serde(skip_serializing_if = "Option::is_none")]
-    item_gap: Option<f64>,
+    item_gap: Option<i64>,
 
     /// The `zlevel` value of all graphical elements in the title.
     #[serde(skip_serializing_if = "Option::is_none")]
-    zlevel: Option<f64>,
+    zlevel: Option<i64>,
 
     /// The `z` value of all graphical elements in the title.
     #[serde(skip_serializing_if = "Option::is_none")]
-    z: Option<f64>,
+    z: Option<i64>,
 
     /// Distance between title component and the left side of the container.
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -99,11 +99,11 @@ pub struct Title {
 
     /// Border width of title.
     #[serde(skip_serializing_if = "Option::is_none")]
-    border_width: Option<f64>,
+    border_width: Option<i64>,
 
     /// Border radius of title.
     #[serde(skip_serializing_if = "Option::is_none")]
-    border_radius: Option<f64>,
+    border_radius: Option<i64>,
 
     /// Shadow color of title.
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -111,15 +111,15 @@ pub struct Title {
 
     /// Size of shadow blur.
     #[serde(skip_serializing_if = "Option::is_none")]
-    shadow_blur: Option<f64>,
+    shadow_blur: Option<i64>,
 
     /// Offset distance on the horizontal direction of shadow.
     #[serde(skip_serializing_if = "Option::is_none")]
-    shadow_offset_x: Option<f64>,
+    shadow_offset_x: Option<i64>,
 
     /// Offset distance on the vertical direction of shadow.
     #[serde(skip_serializing_if = "Option::is_none")]
-    shadow_offset_y: Option<f64>,
+    shadow_offset_y: Option<i64>,
 }
 
 impl Title {
@@ -219,17 +219,17 @@ impl Title {
         self
     }
 
-    pub fn item_gap<F: Into<f64>>(mut self, item_gap: F) -> Self {
+    pub fn item_gap<F: Into<i64>>(mut self, item_gap: F) -> Self {
         self.item_gap = Some(item_gap.into());
         self
     }
 
-    pub fn zlevel<F: Into<f64>>(mut self, zlevel: F) -> Self {
+    pub fn zlevel<F: Into<i64>>(mut self, zlevel: F) -> Self {
         self.zlevel = Some(zlevel.into());
         self
     }
 
-    pub fn z<F: Into<f64>>(mut self, z: F) -> Self {
+    pub fn z<F: Into<i64>>(mut self, z: F) -> Self {
         self.z = Some(z.into());
         self
     }
@@ -264,12 +264,12 @@ impl Title {
         self
     }
 
-    pub fn border_width<F: Into<f64>>(mut self, border_width: F) -> Self {
+    pub fn border_width<F: Into<i64>>(mut self, border_width: F) -> Self {
         self.border_width = Some(border_width.into());
         self
     }
 
-    pub fn border_radius<F: Into<f64>>(mut self, border_radius: F) -> Self {
+    pub fn border_radius<F: Into<i64>>(mut self, border_radius: F) -> Self {
         self.border_radius = Some(border_radius.into());
         self
     }
@@ -279,17 +279,17 @@ impl Title {
         self
     }
 
-    pub fn shadow_blur<F: Into<f64>>(mut self, shadow_blur: F) -> Self {
+    pub fn shadow_blur<F: Into<i64>>(mut self, shadow_blur: F) -> Self {
         self.shadow_blur = Some(shadow_blur.into());
         self
     }
 
-    pub fn shadow_offset_x<F: Into<f64>>(mut self, shadow_offset_x: F) -> Self {
+    pub fn shadow_offset_x<F: Into<i64>>(mut self, shadow_offset_x: F) -> Self {
         self.shadow_offset_x = Some(shadow_offset_x.into());
         self
     }
 
-    pub fn shadow_offset_y<F: Into<f64>>(mut self, shadow_offset_y: F) -> Self {
+    pub fn shadow_offset_y<F: Into<i64>>(mut self, shadow_offset_y: F) -> Self {
         self.shadow_offset_y = Some(shadow_offset_y.into());
         self
     }

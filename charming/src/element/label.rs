@@ -50,13 +50,13 @@ pub struct Label {
     position: Option<LabelPosition>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    distance: Option<f64>,
+    distance: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     rotate: Option<String>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    offset: Option<(f64, f64)>,
+    offset: Option<(i64, i64)>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     formatter: Option<Formatter>,
@@ -65,13 +65,13 @@ pub struct Label {
     color: Option<Color>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    font_size: Option<f64>,
+    font_size: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     font_weight: Option<String>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    padding: Option<(f64, f64, f64, f64)>,
+    padding: Option<(i64, i64, i64, i64)>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     align: Option<LabelAlign>,
@@ -89,16 +89,16 @@ pub struct Label {
     border_color: Option<Color>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    border_width: Option<f64>,
+    border_width: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    shadow_blur: Option<f64>,
+    shadow_blur: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    shadow_offset_x: Option<f64>,
+    shadow_offset_x: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    shadow_offset_y: Option<f64>,
+    shadow_offset_y: Option<i64>,
 }
 
 impl Label {
@@ -136,7 +136,7 @@ impl Label {
         self
     }
 
-    pub fn distance<F: Into<f64>>(mut self, distance: F) -> Self {
+    pub fn distance<F: Into<i64>>(mut self, distance: F) -> Self {
         self.distance = Some(distance.into());
         self
     }
@@ -146,7 +146,7 @@ impl Label {
         self
     }
 
-    pub fn offset<F: Into<f64>>(mut self, offset: (F, F)) -> Self {
+    pub fn offset<F: Into<i64>>(mut self, offset: (F, F)) -> Self {
         self.offset = Some((offset.0.into(), offset.1.into()));
         self
     }
@@ -161,7 +161,7 @@ impl Label {
         self
     }
 
-    pub fn font_size<F: Into<f64>>(mut self, font_size: F) -> Self {
+    pub fn font_size<F: Into<i64>>(mut self, font_size: F) -> Self {
         self.font_size = Some(font_size.into());
         self
     }
@@ -171,7 +171,7 @@ impl Label {
         self
     }
 
-    pub fn padding<F: Into<f64>>(mut self, padding: (F, F, F, F)) -> Self {
+    pub fn padding<F: Into<i64>>(mut self, padding: (F, F, F, F)) -> Self {
         self.padding = Some((
             padding.0.into(),
             padding.1.into(),
@@ -206,22 +206,22 @@ impl Label {
         self
     }
 
-    pub fn border_width<F: Into<f64>>(mut self, border_width: F) -> Self {
+    pub fn border_width<F: Into<i64>>(mut self, border_width: F) -> Self {
         self.border_width = Some(border_width.into());
         self
     }
 
-    pub fn shadow_blur<F: Into<f64>>(mut self, shadow_blur: F) -> Self {
+    pub fn shadow_blur<F: Into<i64>>(mut self, shadow_blur: F) -> Self {
         self.shadow_blur = Some(shadow_blur.into());
         self
     }
 
-    pub fn shadow_offset_x<F: Into<f64>>(mut self, shadow_offset_x: F) -> Self {
+    pub fn shadow_offset_x<F: Into<i64>>(mut self, shadow_offset_x: F) -> Self {
         self.shadow_offset_x = Some(shadow_offset_x.into());
         self
     }
 
-    pub fn shadow_offset_y<F: Into<f64>>(mut self, shadow_offset_y: F) -> Self {
+    pub fn shadow_offset_y<F: Into<i64>>(mut self, shadow_offset_y: F) -> Self {
         self.shadow_offset_y = Some(shadow_offset_y.into());
         self
     }
@@ -237,13 +237,13 @@ pub struct LabelLine {
     show_above: Option<bool>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    length: Option<f64>,
+    length: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     smooth: Option<bool>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    min_turn_angle: Option<f64>,
+    min_turn_angle: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     line_style: Option<LineStyle>,
@@ -271,7 +271,7 @@ impl LabelLine {
         self
     }
 
-    pub fn length<F: Into<f64>>(mut self, length: F) -> Self {
+    pub fn length<F: Into<i64>>(mut self, length: F) -> Self {
         self.length = Some(length.into());
         self
     }
@@ -281,7 +281,7 @@ impl LabelLine {
         self
     }
 
-    pub fn min_turn_angle<F: Into<f64>>(mut self, min_turn_angle: F) -> Self {
+    pub fn min_turn_angle<F: Into<i64>>(mut self, min_turn_angle: F) -> Self {
         self.min_turn_angle = Some(min_turn_angle.into());
         self
     }
@@ -302,7 +302,7 @@ pub struct LabelLayout {
     overlap: Option<String>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    rotate: Option<f64>,
+    rotate: Option<i64>,
 }
 
 impl LabelLayout {
@@ -324,7 +324,7 @@ impl LabelLayout {
         self
     }
 
-    pub fn rotate<F: Into<f64>>(mut self, rotate: F) -> Self {
+    pub fn rotate<F: Into<i64>>(mut self, rotate: F) -> Self {
         self.rotate = Some(rotate.into());
         self
     }

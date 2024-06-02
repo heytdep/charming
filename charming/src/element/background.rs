@@ -12,16 +12,16 @@ pub struct BackgroundStyle {
     border_color: Option<Color>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    border_width: Option<f64>,
+    border_width: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     border_type: Option<BorderType>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    border_radius: Option<f64>,
+    border_radius: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    opacity: Option<f64>,
+    opacity: Option<i64>,
 }
 
 impl BackgroundStyle {
@@ -46,7 +46,7 @@ impl BackgroundStyle {
         self
     }
 
-    pub fn border_width<F: Into<f64>>(mut self, border_width: F) -> Self {
+    pub fn border_width<F: Into<i64>>(mut self, border_width: F) -> Self {
         self.border_width = Some(border_width.into());
         self
     }
@@ -56,12 +56,12 @@ impl BackgroundStyle {
         self
     }
 
-    pub fn border_radius<F: Into<f64>>(mut self, border_radius: F) -> Self {
+    pub fn border_radius<F: Into<i64>>(mut self, border_radius: F) -> Self {
         self.border_radius = Some(border_radius.into());
         self
     }
 
-    pub fn opacity<F: Into<f64>>(mut self, opacity: F) -> Self {
+    pub fn opacity<F: Into<i64>>(mut self, opacity: F) -> Self {
         self.opacity = Some(opacity.into());
         self
     }

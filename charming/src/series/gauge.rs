@@ -27,10 +27,10 @@ pub struct GaugeDetail {
     font_family: Option<String>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    font_size: Option<f64>,
+    font_size: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    precision: Option<f64>,
+    precision: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     value_animation: Option<bool>,
@@ -79,12 +79,12 @@ impl GaugeDetail {
         self
     }
 
-    pub fn font_size<F: Into<f64>>(mut self, font_size: F) -> Self {
+    pub fn font_size<F: Into<i64>>(mut self, font_size: F) -> Self {
         self.font_size = Some(font_size.into());
         self
     }
 
-    pub fn precision<F: Into<f64>>(mut self, precision: F) -> Self {
+    pub fn precision<F: Into<i64>>(mut self, precision: F) -> Self {
         self.precision = Some(precision.into());
         self
     }
@@ -139,7 +139,7 @@ pub struct GaugeProgress {
     overlap: Option<bool>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    width: Option<f64>,
+    width: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     round_cap: Option<bool>,
@@ -173,7 +173,7 @@ impl GaugeProgress {
         self
     }
 
-    pub fn width<F: Into<f64>>(mut self, width: F) -> Self {
+    pub fn width<F: Into<i64>>(mut self, width: F) -> Self {
         self.width = Some(width.into());
         self
     }
@@ -210,10 +210,10 @@ pub struct Gauge {
     color_by: Option<ColorBy>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    zlevel: Option<f64>,
+    zlevel: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    z: Option<f64>,
+    z: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     center: Option<(String, String)>,
@@ -222,22 +222,22 @@ pub struct Gauge {
     legend_hover_link: Option<bool>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    start_angle: Option<f64>,
+    start_angle: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    end_angle: Option<f64>,
+    end_angle: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     clockwise: Option<bool>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    min: Option<f64>,
+    min: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    max: Option<f64>,
+    max: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    split_number: Option<f64>,
+    split_number: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     radius: Option<String>,
@@ -319,12 +319,12 @@ impl Gauge {
         self
     }
 
-    pub fn zlevel<F: Into<f64>>(mut self, zlevel: F) -> Self {
+    pub fn zlevel<F: Into<i64>>(mut self, zlevel: F) -> Self {
         self.zlevel = Some(zlevel.into());
         self
     }
 
-    pub fn z<F: Into<f64>>(mut self, z: F) -> Self {
+    pub fn z<F: Into<i64>>(mut self, z: F) -> Self {
         self.z = Some(z.into());
         self
     }
@@ -339,12 +339,12 @@ impl Gauge {
         self
     }
 
-    pub fn start_angle<F: Into<f64>>(mut self, start_angle: F) -> Self {
+    pub fn start_angle<F: Into<i64>>(mut self, start_angle: F) -> Self {
         self.start_angle = Some(start_angle.into());
         self
     }
 
-    pub fn end_angle<F: Into<f64>>(mut self, end_angle: F) -> Self {
+    pub fn end_angle<F: Into<i64>>(mut self, end_angle: F) -> Self {
         self.end_angle = Some(end_angle.into());
         self
     }
@@ -354,17 +354,17 @@ impl Gauge {
         self
     }
 
-    pub fn min<F: Into<f64>>(mut self, min: F) -> Self {
+    pub fn min<F: Into<i64>>(mut self, min: F) -> Self {
         self.min = Some(min.into());
         self
     }
 
-    pub fn max<F: Into<f64>>(mut self, max: F) -> Self {
+    pub fn max<F: Into<i64>>(mut self, max: F) -> Self {
         self.max = Some(max.into());
         self
     }
 
-    pub fn split_number<F: Into<f64>>(mut self, split_number: F) -> Self {
+    pub fn split_number<F: Into<i64>>(mut self, split_number: F) -> Self {
         self.split_number = Some(split_number.into());
         self
     }

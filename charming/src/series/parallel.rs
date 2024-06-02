@@ -25,7 +25,7 @@ pub struct Parallel {
     coordinate_system: Option<CoordinateSystem>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    parallel_index: Option<f64>,
+    parallel_index: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     name: Option<String>,
@@ -40,22 +40,22 @@ pub struct Parallel {
     emphasis: Option<Emphasis>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    inactive_opacity: Option<f64>,
+    inactive_opacity: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    active_opacity: Option<f64>,
+    active_opacity: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     realtime: Option<bool>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    smooth: Option<f64>,
+    smooth: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    progressive: Option<f64>,
+    progressive: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    progressive_threshold: Option<f64>,
+    progressive_threshold: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     progressive_chunk_mode: Option<ProgressiveChunkMode>,
@@ -96,7 +96,7 @@ impl Parallel {
         self
     }
 
-    pub fn parallel_index<F: Into<f64>>(mut self, parallel_index: F) -> Self {
+    pub fn parallel_index<F: Into<i64>>(mut self, parallel_index: F) -> Self {
         self.parallel_index = Some(parallel_index.into());
         self
     }
@@ -121,12 +121,12 @@ impl Parallel {
         self
     }
 
-    pub fn inactive_opacity<F: Into<f64>>(mut self, inactive_opacity: F) -> Self {
+    pub fn inactive_opacity<F: Into<i64>>(mut self, inactive_opacity: F) -> Self {
         self.inactive_opacity = Some(inactive_opacity.into());
         self
     }
 
-    pub fn active_opacity<F: Into<f64>>(mut self, active_opacity: F) -> Self {
+    pub fn active_opacity<F: Into<i64>>(mut self, active_opacity: F) -> Self {
         self.active_opacity = Some(active_opacity.into());
         self
     }
@@ -136,17 +136,17 @@ impl Parallel {
         self
     }
 
-    pub fn smooth<F: Into<f64>>(mut self, smooth: F) -> Self {
+    pub fn smooth<F: Into<i64>>(mut self, smooth: F) -> Self {
         self.smooth = Some(smooth.into());
         self
     }
 
-    pub fn progressive<F: Into<f64>>(mut self, progressive: F) -> Self {
+    pub fn progressive<F: Into<i64>>(mut self, progressive: F) -> Self {
         self.progressive = Some(progressive.into());
         self
     }
 
-    pub fn progressive_threshold<F: Into<f64>>(mut self, progressive_threshold: F) -> Self {
+    pub fn progressive_threshold<F: Into<i64>>(mut self, progressive_threshold: F) -> Self {
         self.progressive_threshold = Some(progressive_threshold.into());
         self
     }

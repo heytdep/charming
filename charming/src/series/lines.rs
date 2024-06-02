@@ -21,13 +21,13 @@ pub struct Lines {
     coordinate_system: Option<CoordinateSystem>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    x_axis_index: Option<f64>,
+    x_axis_index: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    y_axis_index: Option<f64>,
+    y_axis_index: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    geo_index: Option<f64>,
+    geo_index: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     polyline: Option<bool>,
@@ -36,13 +36,13 @@ pub struct Lines {
     large: Option<bool>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    large_threshold: Option<f64>,
+    large_threshold: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     symbol: Option<Symbol>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    symbol_size: Option<f64>,
+    symbol_size: Option<i64>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     line_style: Option<LineStyle>,
