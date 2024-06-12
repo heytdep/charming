@@ -1,5 +1,9 @@
 # Charming - A Rust Visualization Library
 
+> Note: this is a slightly changed fork of the awesome [charming](https://crates.io/crates/charming) crate.
+
+<hr/>
+
 [![crates.io](https://img.shields.io/crates/v/charming.svg)](https://crates.io/crates/charming)
 [![docs.rs](https://docs.rs/charming/badge.svg)](https://docs.rs/charming)
 [![discord](https://dcbadge.vercel.app/api/server/u3wmVPcW?style=flat)](https://discord.gg/u3wmVPcW)
